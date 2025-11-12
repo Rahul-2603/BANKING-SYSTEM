@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        #login_bl {
+            margin: 140px auto;
+            width: 25%;
+        }
+
+        #lbl {
+            height: auto;
+            background-color: navy;
+            border-radius: 30px;
+            box-shadow: 0px 0px 20px 10px navajowhite;
+        }
+
+        .b1,
+        .b2 {
+            border-radius: 5px;
+            background-color: whitesmoke;
+            color: maroon
+        }
+
+        @media (max-width: 1000px) {
+            #login_bl {
+                min-width: 50%
+            }
+        }
+
+        @media (max-width: 576px) {
+            #login_bl {
+                min-width: 80%;
+
+                margin-right: 200px;
+            }
+        }
+    </style>
+
+    <title>BOI LOGIN </title>
+</head>
+
+<body style="background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);">
+    <section>
+        <form action="/rahul">
+            <div id="login_bl">
+                <div id="lbl" class="card container px-3 py-3 mx-5 ">
+                    <div class="card-body ">
+                        <div class="text-center text-light  ">
+                            <h1> <img style="border-radius: 5px;" src="logo.png" alt="" width="40" height="30"
+                                    class="m-1 d-inline-block  align-text-top"> </h1>
+                            <h4 class=" navbar-brand fw-bold">BANK OF INDIA</h4>
+                            <h2 class="fw-bold">ADMIN</h2>
+                        </div>
+
+                        <input id="user" type="text" class="form-control my-3" placeholder="Enter The Username"
+                            aria-label="Username" aria-describedby="basic-addon1">
+                        <div class="input-group mt-5 mb-2 ms-1">
+                            <input id="pass" type="password" class="form-control" placeholder="password"
+                                aria-label="Username" aria-describedby="basic-addon1">
+                            <span  onclick="eye_cl()" class="input-group-text " id="basic-addon1"><i id="eye"
+                                    class="bi bi-eye-fill"></i></span>
+                        </div>
+
+                        <p id="msg" class="text-danger fw-bold mt-2 mx-3"></p>
+                        <div class="bt d-flex">
+                            <div onclick="login()" class="fw-bold b1 btn btn-light  m-5">login</div>
+                            <span onclick="cancel()" class=" b2 btn btn-light fw-bold    mx-2 my-5 ">cancel</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </section>
+
+    <script>
+
+        let pass = document.getElementById('pass')
+        let msg = document.getElementById('msg');
+        let user = document.getElementById('user')
+        let eye = document.getElementById('eye')
+        let username = 'BOIADMIN'
+        let password = '123@boi'
+        function login() {
+            if (user.value == username && pass.value == password) {
+                msg.innerHTML = ''
+                window.location.href = 'admin.html'
+
+            }
+            else {
+                msg.innerHTML = 'Invaild username or password‼‼'
+            }
+
+
+        }
+
+        function cancel() {
+            window.location.href = 'home.html'
+
+        }
+
+
+        function eye_cl() {
+
+
+            
+            if (eye.classList.contains('bi-eye-slash')) {
+
+                pass.removeAttribute('type')
+                pass.setAttribute('type', 'password')
+                eye.classList.remove('bi-eye-slash')
+                eye.classList.add('bi-eye-fill')
+               
+            }
+            else {
+                
+                pass.removeAttribute('type')
+                pass.setAttribute('type', 'text')
+                
+                 eye.classList.remove('bi-eye-fill')
+                eye.classList.add('bi-eye-slash')
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+        if (performance.navigation.type === 1 ||
+            performance.getEntriesByType("navigation")[0].type === "reload") {
+
+
+            if (!window.location.href.includes("home.html")) {
+                window.location.href = "home.html";
+            }
+        }
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
