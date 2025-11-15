@@ -3,18 +3,21 @@
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
     <style>
         .container {
-          background-color: navy;
+            width: 90%;
+            max-width: 1000px;
+            min-width: 300px;
+            background-color: navy;
             height: auto;
             margin: auto;
-            margin-top: 160px;
+            margin-top: 50px;
             border-radius: 20px;
             border: 2px solid #ffffff;
             color: white
@@ -25,7 +28,8 @@
             padding: 20px;
             border-bottom: 3px solid white;
         }
-         .btn {
+
+        .btn {
             background: linear-gradient(135deg, navy, #00bcd4);
             color: white;
             font-weight: 600;
@@ -35,19 +39,23 @@
             transition: all 0.3s ease-in-out;
             min-width: 100px
         }
-         .btn:hover {
+
+        .btn:hover {
             transform: translateY(-3px);
         }
-        input.form-control {
-              background-color: #222;
-            border: 2px solid hwb(0 0% 100%);
-            color: #fff;
-            border-radius: 8px;
-            padding: 10px;
-            font-size: 1rem;
-            transition: 0.3s;
-         
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0f7fa;
+            border-radius: 6px;
+            padding: 12px 15px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            height: 40px !important;
+            resize: vertical;
+            min-width: 200px;
         }
+
+
 
         input.form-control:focus {
             border-color: #00bcd4;
@@ -55,7 +63,72 @@
             background-color: #222;
             color: white;
         }
-      
+
+        #con4 {
+            background: #141414;
+            border-radius: 15px;
+            box-shadow: 0 0 5px #00bcd4;
+            transition: 0.3s ease-in-out;
+            min-height: 50vh;
+            width: 50%;
+            max-width: 300px;
+            min-width: 300px;
+
+            margin: auto;
+        }
+
+        .con4:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 10px #00bcd4;
+        }
+
+        /* table====================================== */
+        .rwd-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            margin-top: 100px;
+
+        }
+
+        .rwd-table th,
+        .rwd-table td {
+            background-color: rgba(0, 0, 0, 0.3);
+
+            color: hwb(200 86% 13%);
+            border-bottom: 2px solid #00ffc4;
+            padding: 18px 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            #tr {
+                display: none;
+                /* hide headers */
+            }
+
+            .rwd-table tr {
+                display: block;
+                margin-bottom: 15px;
+                border: none;
+                border-radius: 8px;
+                padding: 10px;
+            }
+
+            .rwd-table td {
+                display: flex;
+                justify-content: space-around;
+                padding: 8px 0;
+            }
+
+            .rwd-table td::before {
+                content: attr(data-label);
+                /* show header */
+                font-weight: bold;
+            }
+        }
     </style>
     <title>Document</title>
 </head>
@@ -79,11 +152,8 @@
                             <a class="nav-link active fs-5 fw-bolder  text-light" aria-current="page"
                                 href="index.html"><i class="bi bi-house-fill mx-2"></i>Home</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link active text-light fs-5 fw-bolder  text-light" href="login.html"><i
-                                    class="bi mx-2 bi-person-fill-lock"></i>Admin Login</a>
-                        </li>
-                       <li class="nav-item">
                             <a class="nav-link active fs-5 fw-bolder  text-light" href="atm.html"> <i
                                     class="bi mx-2 bi-person-fill"></i>User Login</a>
                         </li>
@@ -99,9 +169,53 @@
 
 
     </section>
-    <div id="main" class="container d-flex  p-4 justify-content-between">
+    <section>
+        <div id="con4" class=" d-flex flex-column gap-3 mt-5 p-4 me-0justify-content-center ">
+            <div>
+                <button onclick="create()" class="btn d-flex w-100 mt-5 justify-content-center gap-5">
+                    CREATE ACCOUNT
+                </button>
+            </div>
+            <div>
+                <BUtton onclick="All()" class=" btn d-flex w-100 justify-content-center gap-5">
+                    ACCOUNT DETAILS
+                </BUtton>
+            </div>
 
-        <form class="row g-3 p-5 fw-bold" onsubmit="saveData(event)">
+
+        </div>
+
+
+    </section>
+    <section id="ta" class="d-none">
+        <table class="rwd-table">
+            <thead id="tr">
+                <th>NAME</th>
+                <th>MOBILE NO</th>
+                <th>ACCOUNT NO</th>
+                <th>BALANCE</th>
+                <th>ADHAAR</th>
+                <th>COUSTOMER ID</th>
+                <th>PASSWORD</th>
+                <thead>
+                <tbody id="detial">
+
+
+                </tbody>
+
+
+        </table>
+        <div class="d-flex justify-content-center m-5"> 
+            <button class="btn" onclick="back()">Back</button>
+
+        </div>
+
+
+    </section>
+
+
+    <div id="main" class="container d-flex  p-4 justify-content-between d-none ">
+        <form class="row g-3 p-2 fw-bold " onsubmit="saveData(event)">
             <div class="col-md-4">
                 <label for="validationDefault01" class="form-label ">Full Name</label>
                 <input id="name" type="text" class="form-control" id="validationDefault01" required>
@@ -128,22 +242,59 @@
             </div>
 
 
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-5  d-flex gap-3">
                 <button class="btn" type="submit">Verify</button>
+                <button class="btn" onclick="back()">Back</button>
+
             </div>
+            <p id="p" class="fw-bold fs-5 text-light m-3"></p>
         </form>
     </div>
 
-    <script>
-        
+    </div>
 
+
+
+
+    <script>
+       let ta=document.getElementById('ta')
+        let detial = document.getElementById('detial')
+        let main = document.getElementById('main')
+        let con = document.getElementById('con4')
         let name = document.getElementById('name')
         let mob = document.getElementById('mob')
         let accno = document.getElementById('accno')
         let pass = document.getElementById('pass')
         let bal = document.getElementById('bal')
         let adhar = document.getElementById('adhar')
+        let p = document.getElementById('p')
         let all_data = null
+
+        //==================back,create,all===============
+        function back() {
+
+
+            con.classList.remove('d-none')
+            main.classList.add('d-none')
+            ta.classList.add('d-none')
+
+        }
+
+        function create() {
+
+            main.classList.remove('d-none')
+            con.classList.add('d-none')
+
+
+        }
+        function All() {
+
+            ta.classList.remove('d-none')
+            con.classList.add('d-none')
+
+        }
+
+
 
 
         //==============================================togle==================
@@ -168,43 +319,88 @@
 
 
 
-       
+
 
 
         all_data = JSON.parse(localStorage.getItem("all_data")) || [];
 
-
+        table()
 
         function saveData(event) {
             if (event) event.preventDefault();
 
-
+ 
             let id_no = Math.trunc(Math.random() * 100000)
             data = {
-                user_name: name.value,
-                mobile: mob.value,
-                accno: accno.value,
+                name: name.value,
+                mobile_no: mob.value,
+                acc_no: accno.value,
                 bal: bal.value,
-                adhar: adhar.value,
-                pass: pass.value,
+                adhar_no: adhar.value,
+                password: pass.value,
                 coustmer_no: `x${id_no}`
             }
+            console.log(data)
             all_data.push(data)
-            name.value = "";
-            mob.value = "";
-            accno.value = "";
-            pass.value = "";
-            bal.value = "";
-            adhar.value = "";
-            localStorage.setItem("all_data", JSON.stringify(all_data));
+            count = 5
+
+            let start = setInterval(() => {
+                p.innerHTML = `Account created successfully✅ ${data.user_name}'s, Coustomer ID <span class=" text-danger">${data.coustmer_no}</span>  ,Don't Share With Anyone (${count--})`
+
+            }, 1000)
+
+
+
+            setTimeout(() => {
+                count = 5
+                p.innerHTML = " "
+                clearInterval(start)
+                name.value = "";
+                mob.value = "";
+                accno.value = "";
+                pass.value = "";
+                bal.value = "";
+                adhar.value = "";
+                localStorage.setItem("all_data", JSON.stringify(all_data));
+                table()
+
+            }, 6000)
 
 
         }
-        
+        //================table
+
+
+        function table() {
+            console.log(all_data)
+
+
+            all_data.forEach(ele => {
+
+
+                detial.innerHTML += ` <tr >
+                        <td data-label="NAME:">${ele.name}</td>
+                        <td data-label="MOBILE NO:">${ele.mobile_no}</td>
+                        <td data-label="ACCOUNT NO:">${ele.acc_no}</td>
+                        <td data-label="BALANCE:">${ele.bal}</td>
+                        <td data-label="ADHAAR:">${ele.adhar_no}</td>
+                        <td data-label="COUSTOMER NO:">${ele.coustmer_no}</td>
+                        <td data-label="PASSWORD":">${ele.password  }</td>
+                    </tr>`
 
 
 
-  
+
+            });
+
+
+
+        }
+
+
+
+
+
 
 
 
