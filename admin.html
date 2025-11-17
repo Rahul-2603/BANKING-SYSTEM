@@ -117,15 +117,15 @@
                 padding: 10px;
             }
 
-            .rwd-table td {
+            td {
                 display: flex;
                 justify-content: space-around;
                 padding: 8px 0;
             }
 
-            .rwd-table td::before {
+            td::before {
                 content: attr(data-label);
-                /* show header */
+                 
                 font-weight: bold;
             }
         }
@@ -197,7 +197,7 @@
                 <th>ADHAAR</th>
                 <th>COUSTOMER ID</th>
                 <th>PASSWORD</th>
-                <thead>
+            <thead>
                 <tbody id="detial">
 
 
@@ -205,7 +205,7 @@
 
 
         </table>
-        <div class="d-flex justify-content-center m-5"> 
+        <div class="d-flex justify-content-center m-5">
             <button class="btn" onclick="back()">Back</button>
 
         </div>
@@ -257,7 +257,7 @@
 
 
     <script>
-       let ta=document.getElementById('ta')
+        let ta = document.getElementById('ta')
         let detial = document.getElementById('detial')
         let main = document.getElementById('main')
         let con = document.getElementById('con4')
@@ -329,7 +329,7 @@
         function saveData(event) {
             if (event) event.preventDefault();
 
- 
+
             let id_no = Math.trunc(Math.random() * 100000)
             data = {
                 name: name.value,
@@ -385,7 +385,7 @@
                         <td data-label="BALANCE:">${ele.bal}</td>
                         <td data-label="ADHAAR:">${ele.adhar_no}</td>
                         <td data-label="COUSTOMER NO:">${ele.coustmer_no}</td>
-                        <td data-label="PASSWORD":">${ele.password  }</td>
+                        <td data-label="PASSWORD":">${ele.password}</td>
                     </tr>`
 
 

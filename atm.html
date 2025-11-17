@@ -333,9 +333,9 @@
 
     <script>
         let det = document.getElementById("det");
-        let bank_name = "RAHUL",
-            bank_loc = "MARATHALLI",
-            bank_ifsc = "RAH1123";
+        let bank_name = "BANK OF INDIA",
+            bank_loc = "BANGALORE",
+            bank_ifsc = "BOI07123";
         let all_customers = {};
         let coustmer = null;
         let cancelled = false;
@@ -472,9 +472,10 @@
             this.acc_no = acc_no;
             this.adhar_no = adhar;
             this.mobile_no = mobile;
+
             this.password = password;
             this.balance = balance;
-            this.cus_no = cus_no;
+            this.coustmer_no = cus_no;
 
             // ==========================================================Check Balance 
             this.checkBalance = async () => {
@@ -599,6 +600,7 @@
 
             // ---------- Account Details ----------
             this.accountDetails = async () => {
+                console.log(data_all)
                 let count = 3;
                 while (count > 0) {
                     try {
